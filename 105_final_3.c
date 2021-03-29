@@ -5,21 +5,25 @@ int main()
 
     scanf("%d %d %d",&n1,&n2,&n3);
 
-    int A[n1][n1],B[n2][n2],C[n3][n3],sum[1000]={0},row,colum;
+    int A[n1][n1],B[n2][n2],C[n3][n3],sum[1000]={0},row[1000],colum[1000];
 
     for(i=0;i<n1;i++)
      {
          for(j=0;j<n1;j++)
             {
                 scanf("%d",&A[i][j]);
-                sum[i]=A[i][j]+sum[i];
+                row[i]=A[i][j]+row[i];
+                colum[i]=A[j][i]+colum[i];
             }
      }
 
-    for(i=0;i<6;i++)
+    for(i=0;i<n1;i++)
      {
 
-        printf("%d ",sum[i]);
+
+                  printf("%d,%d\n",row[i],colum[i]);
+
+
 
 
      }
