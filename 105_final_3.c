@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-    int n[3],a,i,j,dia1[5]={0},dia2[5]={0},row[5][100]= {0},colum[5][100]= {0},k;
+    int n[3],a[3]={0,0,0},i,j,dia1[5]={0},dia2[5]={0},row[5][100]= {0},colum[5][100]= {0},k;
 
     for(i=0; i<3; i++)
         scanf("%d",&n[i]);
@@ -72,27 +72,39 @@ int main()
         {
             if(row[k][i]!=row[k][i+1])
             {
-                printf("yes");
+                a[k]=1;
                 break;
 
             }
 
             if(colum[k][i]!=colum[k][i+1])
             {
-                printf("yes");
+                a[k]=1;
                 break;
             }
 
+            if(dia1[k]!=dia2[k])
+            {
+                a[k]=1;
+                break;
+            }
         }
     }
 
 
 
 
-    /*for(i=0;i<n1;i++)
+    for(i=0;i<3;i++)
      {
-                  printf("%d,%d\n",row[i],colum[i]);
-     }*/
+        if(a[i]==0)
+        {
+            printf("no\n");
+        }
+        else
+        {
+            printf("yes\n");
+        }
+     }
 
 
 
