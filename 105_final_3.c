@@ -1,12 +1,12 @@
 #include<stdio.h>
 int main()
 {
-    int n[3],a,i,j,dia1=0,dia2=0,row[1000]= {0},colum[1000]= {0},k;
+    int n[3],a,i,j,dia1[5]={0},dia2[5]={0},row[5][100]= {0},colum[5][100]= {0},k;
 
     for(i=0; i<3; i++)
         scanf("%d",&n[i]);
 
-    int A[n[0]][n[0]],B[n[1]][n[1]],C[n[2]][n[2]];
+    int A[3][n[0]][n[0]],B[3][n[1]][n[1]],C[3][n[2]][n[2]];
 
     for(k=0; k<3; k++)
     {
@@ -33,7 +33,7 @@ int main()
             {
                 if(k==0)
                 {
-                   row[k][i]=A[k][i][j]+row[k][i];
+                    row[k][i]=A[k][i][j]+row[k][i];
                     colum[k][i]=A[k][j][i]+colum[k][i];
                     if(i==0)
                     {
@@ -47,7 +47,7 @@ int main()
                     colum[k][i]=A[k][j][i]+colum[k][i];
                     if(i==0)
                     {
-                       dia1[k]=A[i+j][j+i]+dia1[k];
+                        dia1[k]=A[i+j][j+i]+dia1[k];
                         dia2[k]=A[n[0]-j][j]+dia2[k];
                     }
                 }
@@ -66,22 +66,26 @@ int main()
 
         }
     }
-
-    for(i=0; i<n[0]-1; i++)
+    for(k=0; k<3; k++)
     {
-        if(row[i]!=row[i+1])
+        for(i=0; i<n[k]-1; i++)
         {
-            printf("yes");
-            break;
-        }
+            if(row[k][i]!=row[k][i+1])
+            {
+                printf("yes");
+                break;
 
-        if(colum[i]!=colum[i+1])
-        {
-            printf("yes");
-            break;
-        }
+            }
 
+            if(colum[k][i]!=colum[k][i+1])
+            {
+                printf("yes");
+                break;
+            }
+
+        }
     }
+
 
 
 
