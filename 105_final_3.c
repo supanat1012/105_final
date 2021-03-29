@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-    int n[3],a,i,j,dia[1000]= {0},row[1000]= {0},colum[1000]= {0},k;
+    int n[3],a,i,j,dia1=0,dia2=0,row[1000]= {0},colum[1000]= {0},k;
 
     for(i=0;i<3;i++)
     scanf("%d",&n[i]);
@@ -24,12 +24,18 @@ int main()
         }
         printf("\n");
     }
+
     for(i=0; i<n[0]; i++)
     {
         for(j=0; j<n[0]; j++)
         {
             row[i]=A[i][j]+row[i];
             colum[i]=A[j][i]+colum[i];
+            if(i==0)
+            {
+                dia1=A[i+j][j+i]+dia1;
+                dia2=A[n[0]-j][j]+dia2;
+            }
 
         }
 
