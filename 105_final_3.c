@@ -1,12 +1,12 @@
 #include<stdio.h>
 int main()
 {
-    int n[3],a[3]={0,0,0},i,j,dia1[5]={0},dia2[5]={0},row[5][100]= {0},colum[5][100]= {0},k;
+    int n[3],a[3]={0,0,0},i,j,dia1[5]={0},dia2[5]={0},row[5][1000]= {0},colum[5][1000]= {0},k;
 
     for(i=0; i<3; i++)
         scanf("%d",&n[i]);
 
-    int A[3][n[0]][n[0]],B[3][n[1]][n[1]],C[3][n[2]][n[2]];
+    int A[n[0]][n[0]],B[n[1]][n[1]],C[n[2]][n[2]];
 
     for(k=0; k<3; k++)
     {
@@ -33,32 +33,32 @@ int main()
             {
                 if(k==0)
                 {
-                    row[k][i]=A[k][i][j]+row[k][i];
-                    colum[k][i]=A[k][j][i]+colum[k][i];
+                    row[k][i]=A[i][j]+row[k][i];
+                    colum[k][i]=A[j][i]+colum[k][i];
                     if(i==0)
                     {
                         dia1[k]=A[i+j][j+i]+dia1[k];
-                        dia2[k]=A[n[0]-j][j]+dia2[k];
+                        dia2[k]=A[n[k]-j][j]+dia2[k];
                     }
                 }
                 else if(k==1)
                 {
-                    row[k][i]=A[k][i][j]+row[k][i];
-                    colum[k][i]=A[k][j][i]+colum[k][i];
+                    row[k][i]=B[i][j]+row[k][i];
+                    colum[k][i]=B[j][i]+colum[k][i];
                     if(i==0)
                     {
-                        dia1[k]=A[i+j][j+i]+dia1[k];
-                        dia2[k]=A[n[0]-j][j]+dia2[k];
+                        dia1[k]=B[i+j][j+i]+dia1[k];
+                        dia2[k]=B[n[k]-j][j]+dia2[k];
                     }
                 }
                 else if(k==3)
                 {
-                    row[k][i]=A[k][i][j]+row[k][i];
-                    colum[k][i]=A[k][j][i]+colum[k][i];
+                    row[k][i]=C[i][j]+row[k][i];
+                    colum[k][i]=C[j][i]+colum[k][i];
                     if(i==0)
                     {
-                        dia1[k]=A[i+j][j+i]+dia1[k];
-                        dia2[k]=A[n[0]-j][j]+dia2[k];
+                        dia1[k]=C[i+j][j+i]+dia1[k];
+                        dia2[k]=C[n[k]-j][j]+dia2[k];
                     }
                 }
 
