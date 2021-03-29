@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-    int n[3],a[3]={0,0,0},i,j,dia1[5]={0,0,0},dia2[5]={0,0,0},row[5][1000]= {0},colum[5][1000]= {0},k,x1,x2,x3;
+    int n[3],a[3]={0,0,0},i,j,dia1[5]={0,0,0},dia2[5]={0,0,0},row[5][100]= {0},colum[5][100]= {0},k,x1,x2,x3;
 
     for(i=0; i<3; i++)
         scanf("%d",&n[i]);
@@ -68,10 +68,7 @@ int main()
 
         }
     }
-    for(i=0;i<3;i++)
-    {
-        printf("%d %d \n",dia1[i],dia2[i]);
-    }
+
     for(k=0; k<3; k++)
     {
         for(i=0; i<n[k]-1; i++)
