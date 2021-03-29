@@ -26,10 +26,12 @@ int main()
             }
 
         }
-        if(b==0)
-            printf("%d",a);
-        else
-            printf("%d %d",a,max);
+
+        if(b==1)
+            printf("%d",max);
+
+        printf("%d",a);
+
     }
 
 
